@@ -10,17 +10,18 @@ urlInput <- function(inputId, label, value = "") {
       )
     ),
     shiny::tags$label(label, `for` = inputId),
-    shiny::tags$input(id = inputId, type = "url", value = value)
+    shiny::tags$input(id = inputId, type = "text", value = value)
   )
 }
 
 
 # Send an update message to a URL input on the client.
 # This update message can change the value and/or label.
-updateUrlInput <- function(session, inputId,
-                           label = NULL, value = NULL) {
+updateUrlInput <- function(session, inputId, label = NULL, value = NULL) {
   
-  message <- dropNulls(list(label = label, value = value))
+  t <- input$my_tall
+  message <- dropNulls(list(label = label, value = t ))
+  
   session$sendInputMessage(inputId, message)
 }
 

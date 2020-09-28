@@ -5,11 +5,12 @@ fluidPage(
   
   fluidRow(
     column(4, wellPanel(
-      urlInput("my_url", "URL: ", "http://www.r-project.org/"),
-      actionButton("reset", "Reset URL")
+      urlInput("my_tall", "키 : ", 1),
+      urlInput("my_weight", "몸무게: ", 1),
+      actionButton("reset", "BMI 계산")
     )),
     column(8, wellPanel(
-      verbatimTextOutput("urlText")
+      urlInput("BMIoutput", "BMI : ", 0)
     ))
   )
 )

@@ -3,27 +3,29 @@
 // shiny.js.
 var urlInputBinding = new Shiny.InputBinding();
 
-
 // An input binding must implement these methods
 $.extend(urlInputBinding, {
 
   // This returns a jQuery object with the DOM element
   find: function(scope) {
-    return $(scope).find('input[type="url"]');
+    return $(scope).find('input[type="button"]');
   },
 
   // return the ID of the DOM element
   getId: function(el) {
+    console.log("getid: "+el+","+el.id);
     return el.id;
   },
 
   // Given the DOM element for the input, return the value
   getValue: function(el) {
+    console.log("getvalue: "+el+","+el.value);
     return el.value;
   },
 
   // Given the DOM element for the input, set the value
   setValue: function(el, value) {
+    console.log("setvalue: "+el+","+value);
     el.value = value;
   },
 
@@ -52,6 +54,8 @@ $.extend(urlInputBinding, {
   // Receive messages from the server.
   // Messages sent by updateUrlInput() are received by this function.
   receiveMessage: function(el, data) {
+    console.log("receiveMessage: "+el+", data: "+data);
+    
     if (data.hasOwnProperty('value'))
       this.setValue(el, data.value);
 

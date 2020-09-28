@@ -9,6 +9,6 @@ function(input, output, session) {
     input$reset
     
     # Send an update to my_url, resetting its value
-    updateUrlInput(session, "my_url", value = "http://www.r-project.org/")
+    updateUrlInput(session, "BMIoutput", value = "21.5")
   })
 }
